@@ -1,11 +1,11 @@
-package com.assoftzone.chineslearning.activits;
+package com.assoftzone.chineslearning.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.assoftzone.chineslearning.R;
 
-public class chooseLavel extends AppCompatActivity {
+public class chooseLevel extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
