@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".chooseLavel" />
+        <activity android:name=".activits.chooseLavel"></activity>
     </application>
 
 </manifest>
