@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".chooseLavel" />
-        <activity android:name=".activity.chooseLevel"></activity>
+        <activity android:name=".activity.ChooseLevel" />
+        <activity android:name=".activity.PagerAdapterForEnglish" />
     </application>
 
 </manifest>

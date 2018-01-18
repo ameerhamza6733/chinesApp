@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">chinesLearning</string>
+    <string name="pinyin">Fragment</string>
+    <string name="tone">Fragment</string>
 </resources>
