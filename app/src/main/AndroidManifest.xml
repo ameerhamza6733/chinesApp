@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".activity.ChooseLevel" />
         <activity android:name=".activity.PagerAdapterForEnglish" />
+        <activity android:name=".activity.intialsActivty"></activity>
     </application>
 
 </manifest>
