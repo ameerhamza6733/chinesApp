@@ -1,5 +1,7 @@
 package com.assoftzone.chineslearning.fragment;
 
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
 /**
@@ -16,17 +18,16 @@ import android.view.ViewGroup;
 import com.assoftzone.chineslearning.R;
 import com.assoftzone.chineslearning.adapters.CustomAdapter;
 
-public class RecyclerViewFragment  extends Fragment {
+import static android.content.Context.MODE_PRIVATE;
 
-    private static final String TAG = "RecyclerViewFragment";
+public class RecyclerViewIntialsFragment extends Fragment {
+
+    private static final String TAG = "RecyclerViewIntialsFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    private static final String FINAL_KEY="final";
-    private static  final String INTI_KEY="inti";
     private static final int SPAN_COUNT = 5;
-    private static final int DATASET_COUNT = 23;
-    private static  String mDataBundleKey;
 
-
+    //Declaring Array in Which Intials are Stored
+    private static final String INTIALS_ARRAY[] = {"b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "z", "c", "s", "zh", "ch", "sh", "r", "y", "w"};
 
     private enum LayoutManagerType {
         GRID_LAYOUT_MANAGER,
@@ -34,28 +35,16 @@ public class RecyclerViewFragment  extends Fragment {
     }
 
     protected LayoutManagerType mCurrentLayoutManagerType;
-
-
-
     protected RecyclerView mRecyclerView;
     protected CustomAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset;
 
-    public static RecyclerViewFragment newInstance(String[] data,String dataBundleKey) {
-        RecyclerViewFragment f = new RecyclerViewFragment();
-        Bundle args = new Bundle();
-        if (dataBundleKey.equalsIgnoreCase("final")){
 
-            args.putStringArray(FINAL_KEY,data);
-        }else {
-            args.putStringArray(INTI_KEY,data);
-        }
-
-        f.setArguments(args);
-
-        return f;
+    @NonNull
+    public static RecyclerViewIntialsFragment newInstance() {
+        return new RecyclerViewIntialsFragment();
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +59,6 @@ public class RecyclerViewFragment  extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.recycler_view_frag, container, false);
         rootView.setTag(TAG);
-
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
@@ -87,12 +75,12 @@ public class RecyclerViewFragment  extends Fragment {
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
-        mAdapter = new CustomAdapter(getArguments().getStringArray(mDataBundleKey));
-        // Set CustomAdapter as the adapter for RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-
-
-
+        //get key from shared pref and check witch data should load inti or final
+        mAdapter= new CustomAdapter(INTIALS_ARRAY);
+        if (mAdapter != null) {
+            // Set CustomAdapter as the adapter for RecyclerView.
+            mRecyclerView.setAdapter(mAdapter);
+        }
         return rootView;
     }
 

@@ -3,6 +3,7 @@ package com.assoftzone.chineslearning.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,8 @@ public class CustomPagerAdapter extends PagerAdapter {
                  case "select_pinyin_card":
                      view.getContext().startActivity(new Intent(view.getContext(),IntialsActivity.class));
                      break;
+                     default:
+                         Log.d(TAG,"no view math");
              }
             }
         });
