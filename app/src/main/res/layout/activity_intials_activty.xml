@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.assoftzone.chineslearning.activity.intialsActivty">
-    <fragment android:name="com.assoftzone.chineslearning.fragment.RecyclerViewFragment"
-        android:id="@+id/article_fragment"
+    android:orientation="vertical"
+    tools:context="com.assoftzone.chineslearning.activity.IntialsActivity">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</FrameLayout>
+        android:layout_height="match_parent"
+       >
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

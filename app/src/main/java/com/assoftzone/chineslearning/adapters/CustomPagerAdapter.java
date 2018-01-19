@@ -1,18 +1,20 @@
-package com.assoftzone.chineslearning.activity;
+package com.assoftzone.chineslearning.adapters;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.assoftzone.chineslearning.activity.ModelObject;
+import com.assoftzone.chineslearning.activity.IntialsActivity;
 
 /**
  * Created by Somia on 1/18/2018.
  */
 
-class CustomPagerAdapter extends PagerAdapter {
+public class CustomPagerAdapter extends PagerAdapter {
     private Context mContext;
     private static String TAG="CustomPagerAdapter";
 
@@ -30,7 +32,7 @@ class CustomPagerAdapter extends PagerAdapter {
             public void onClick(View view) {
              switch (view.getTag().toString()){
                  case "select_pinyin_card":
-                     view.getContext().startActivity(new Intent(view.getContext(),intialsActivty.class));
+                     view.getContext().startActivity(new Intent(view.getContext(),IntialsActivity.class));
                      break;
              }
             }

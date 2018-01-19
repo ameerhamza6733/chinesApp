@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ChooseLevel" />
-        <activity android:name=".activity.PagerAdapterForEnglish" />
-        <activity android:name=".activity.intialsActivty"></activity>
+        <activity android:name=".activity.ActivityEnglish" />
+        <activity android:name=".activity.IntialsActivity"></activity>
     </application>
 
 </manifest>

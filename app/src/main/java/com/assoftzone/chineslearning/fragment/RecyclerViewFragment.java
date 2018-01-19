@@ -6,23 +6,27 @@ import android.support.v4.app.Fragment;
  * Created by Somia on 1/18/2018.
  */
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
 
 import com.assoftzone.chineslearning.R;
+import com.assoftzone.chineslearning.adapters.CustomAdapter;
 
 public class RecyclerViewFragment  extends Fragment {
 
     private static final String TAG = "RecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    private static final int SPAN_COUNT = 6;
-    private static final int DATASET_COUNT = 60;
+    private static final String FINAL_KEY="final";
+    private static  final String INTI_KEY="inti";
+    private static final int SPAN_COUNT = 5;
+    private static final int DATASET_COUNT = 23;
+    private static  String mDataBundleKey;
+
+
 
     private enum LayoutManagerType {
         GRID_LAYOUT_MANAGER,
@@ -38,13 +42,27 @@ public class RecyclerViewFragment  extends Fragment {
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
 
+    public static RecyclerViewFragment newInstance(String[] data,String dataBundleKey) {
+        RecyclerViewFragment f = new RecyclerViewFragment();
+        Bundle args = new Bundle();
+        if (dataBundleKey.equalsIgnoreCase("final")){
+
+            args.putStringArray(FINAL_KEY,data);
+        }else {
+            args.putStringArray(INTI_KEY,data);
+        }
+
+        f.setArguments(args);
+
+        return f;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
-        initDataset();
+
     }
 
     @Override
@@ -69,7 +87,7 @@ public class RecyclerViewFragment  extends Fragment {
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
-        mAdapter = new CustomAdapter(mDataset);
+        mAdapter = new CustomAdapter(getArguments().getStringArray(mDataBundleKey));
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
 
@@ -121,10 +139,5 @@ public class RecyclerViewFragment  extends Fragment {
      * Generates Strings for RecyclerView's adapter. This data would usually come
      * from a local content provider or remote server.
      */
-    private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
-        for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "" + i;
-        }
-    }
+
 }

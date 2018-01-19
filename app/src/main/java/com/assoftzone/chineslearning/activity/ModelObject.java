@@ -7,8 +7,9 @@ import com.assoftzone.chineslearning.R;
  */
 
 public enum ModelObject {
-    SelctPinyin(R.string.pinyin, R.layout.select_pinyin_card),
-    SelectTone(R.string.tone, R.layout.tones_select_card);
+
+    //Selecting Card View of Pinyin and Tones
+    SelctPinyin(R.string.pinyin, R.layout.select_pinyin_card),SelectTone(R.string.tone, R.layout.tones_select_card);
 
     private int mTitleResId;
     private int mLayoutResId;

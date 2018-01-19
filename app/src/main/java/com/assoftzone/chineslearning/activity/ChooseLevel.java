@@ -1,7 +1,6 @@
 package com.assoftzone.chineslearning.activity;
 
 import android.content.Intent;
-import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +35,7 @@ public class ChooseLevel extends AppCompatActivity {
     //Switching to Introduction Activity
     public void IntroductionPinyinActivity()
     {
-        Intent intent = new Intent(this, PagerAdapterForEnglish.class);
+        Intent intent = new Intent(this, ActivityEnglish.class);
         startActivity(intent);
     }
         }

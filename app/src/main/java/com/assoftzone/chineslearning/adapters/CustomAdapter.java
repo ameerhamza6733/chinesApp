@@ -1,4 +1,4 @@
-package com.assoftzone.chineslearning.fragment;
+package com.assoftzone.chineslearning.adapters;
 
 /**
  * Created by Somia on 1/18/2018.
